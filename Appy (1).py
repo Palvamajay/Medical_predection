@@ -58,7 +58,7 @@ if st.button("Predict Medical Expenses"):
         except Exception as e:
             st.error(f"⚠️ Error during prediction: {e}")
 
-    st.markdown("---")
-    st.info("📊 Note: This model was trained on an insurance dataset to estimate medical expenses based on patient attributes.")
+st.markdown("---")
+st.info("📊 Note: This model was trained on an insurance dataset to estimate medical expenses based on patient attributes.")
 else:
     st.warning("⚠️ Unable to run predictions because the model could not be loaded.")
