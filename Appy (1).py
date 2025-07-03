@@ -20,7 +20,9 @@ if model:
     st.header("🧑‍⚕️ Patient Information")
 
     # Categorical mappings
-
+sex_mapping = {"female": 0, "male": 1}
+smoker_mapping = {"no": 0, "yes": 1}
+region_mapping = {"southwest": 0, "southeast": 1, "northwest": 2, "northeast": 3}
 
     # Input fields
 age = st.slider("Age", 18, 65, 30)
@@ -32,10 +34,7 @@ region = st.selectbox("Region", list(region_mapping.keys()))
 
     # Predict button
 if st.button("Predict Medical Expenses"):
-        # Encode categorical inputs
-        sex_encoded = 1 if sex == "male" else 0
-        smoker_encoded = 1 if smoker == "yes" else 0
-        region_encoded = {"southwest": 0, "southeast": 1, "northwest": 2, "northeast": 3}[region]
+      
 
         # Prepare input data
         input_data = pd.DataFrame([{
