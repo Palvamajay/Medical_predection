@@ -46,5 +46,3 @@ if model:
             st.write(f"### 💰 Estimated Expenses: ${prediction[0]:,.2f}")
         except Exception as e:
             st.error(f"Prediction failed: {e}")
-else:
-    st.warning("⚠️ Model not loaded. Please check the file.") 
