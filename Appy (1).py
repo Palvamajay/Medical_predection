@@ -60,5 +60,4 @@ if st.button("Predict Medical Expenses"):
 
 st.markdown("---")
 st.info("📊 Note: This model was trained on an insurance dataset to estimate medical expenses based on patient attributes.")
-else:
-    st.warning("⚠️ Unable to run predictions because the model could not be loaded.")
+
