@@ -3,15 +3,9 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-# Load the trained model
-model = None
-try:
-    with open("Expenses_Predictor.pkl", "rb") as f:
+with open("Expenses_Predictor.pkl", "rb") as f:
         model = pickle.load(f)
-except FileNotFoundError:
-    st.error("🚫 Model file 'Expenses_Predictor.pkl' not found in the current directory.")
-except Exception as e:
-    st.error(f"⚠️ An error occurred while loading the model:{e}")
+
 
 # App title
 st.title("💊 Medical Expenses Predictor")
