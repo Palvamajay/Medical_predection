@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pickle
 import pandas as pd
@@ -20,21 +19,24 @@ if model:
     st.header("🧑‍⚕️ Patient Information")
 
     # Categorical mappings
-sex_mapping = {"female": 0, "male": 1}
-smoker_mapping = {"no": 0, "yes": 1}
-region_mapping = {"southwest": 0, "southeast": 1, "northwest": 2, "northeast": 3}
+    sex_mapping = {"female": 0, "male": 1}
+    smoker_mapping = {"no": 0, "yes": 1}
+    region_mapping = {"southwest": 0, "southeast": 1, "northwest": 2, "northeast": 3}
 
     # Input fields
-age = st.slider("Age", 18, 65, 30)
-sex_encoded=st.selectbox("Sex", list(sex_mapping.keys()))
-bmi = st.slider("BMI", 15.0, 50.0, 25.0, help="Body Mass Index: normal range is 18.5 - 24.9")
-children = st.slider("Number of Children", 0, 5, 0)
-smoker = st.selectbox("Smoker", list(smoker_mapping.keys()))
-region = st.selectbox("Region", list(region_mapping.keys()))
+    age = st.slider("Age", 18, 65, 30)
+    sex = st.selectbox("Sex", list(sex_mapping.keys()))
+    bmi = st.slider("BMI", 15.0, 50.0, 25.0, help="Body Mass Index: normal range is 18.5 - 24.9")
+    children = st.slider("Number of Children", 0, 5, 0)
+    smoker = st.selectbox("Smoker", list(smoker_mapping.keys()))
+    region = st.selectbox("Region", list(region_mapping.keys()))
 
     # Predict button
-if st.button("Predict Medical Expenses"):
-      
+    if st.button("Predict Medical Expenses"):
+        # Convert categorical to numeric
+        sex_encoded = sex_mapping[sex]
+        smoker_encoded = smoker_mapping[smoker]
+        region_encoded = region_mapping[region]
 
         # Prepare input data
         input_data = pd.DataFrame([{
@@ -42,8 +44,8 @@ if st.button("Predict Medical Expenses"):
             'sex': sex_encoded,
             'bmi': bmi,
             'children': children,
-            'smoker': smoker,
-            'region': region
+            'smoker': smoker_encoded,
+            'region': region_encoded
         }])
 
         # Make prediction
@@ -55,6 +57,5 @@ if st.button("Predict Medical Expenses"):
         except Exception as e:
             st.error(f"⚠️ Error during prediction: {e}")
 
-st.markdown("---")
-st.info("📊 Note: This model was trained on an insurance dataset to estimate medical expenses based on patient attributes.")
-
+    st.markdown("---")
+    st.info("📊 Note: This model was trained on an insurance dataset to estimate medical expenses based on patient attributes.")
