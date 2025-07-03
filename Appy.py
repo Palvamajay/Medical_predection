@@ -38,8 +38,6 @@ if model:
             'region': region_encoded
         }])
 
-        # Make prediction
-        try:
             prediction = model.predict(input_df)
             st.success("✅ Prediction successful!")
             st.write(f"### 💰 Estimated Expenses: ${prediction[0]:,.2f}")
