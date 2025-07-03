@@ -11,9 +11,7 @@ try:
 except FileNotFoundError:
     st.error("🚫 Model file 'Expenses_Predictor.pkl' not found in the current directory.")
 except Exception as e:
-    st.error(f"⚠️ An error occurred while loading the model:
-
-{e}")
+    st.error(f"⚠️ An error occurred while loading the model:{e}")
 
 # App title
 st.title("💊 Medical Expenses Predictor")
