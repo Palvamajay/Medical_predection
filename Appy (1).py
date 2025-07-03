@@ -20,9 +20,7 @@ if model:
     st.header("🧑‍⚕️ Patient Information")
 
     # Categorical mappings
-sex_mapping = {"female": 0, "male": 1}
-smoker_mapping = {"no": 0, "yes": 1}
-region_mapping = {"southwest": 0, "southeast": 1, "northwest": 2, "northeast": 3}
+
 
     # Input fields
 age = st.slider("Age", 18, 65, 30)
