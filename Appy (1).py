@@ -33,7 +33,7 @@ smoker = st.selectbox("Smoker", list(smoker_mapping.keys()))
 region = st.selectbox("Region", list(region_mapping.keys()))
 
     # Predict button
-    if st.button("Predict Medical Expenses"):
+if st.button("Predict Medical Expenses"):
         # Encode categorical inputs
         sex_encoded = 1 if sex == "male" else 0
         smoker_encoded = 1 if smoker == "yes" else 0
