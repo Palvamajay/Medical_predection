@@ -25,12 +25,12 @@ smoker_mapping = {"no": 0, "yes": 1}
 region_mapping = {"southwest": 0, "southeast": 1, "northwest": 2, "northeast": 3}
 
     # Input fields
-    age = st.slider("Age", 18, 65, 30)
-    st.selectbox("Sex", list(sex_mapping.keys()))
-    bmi = st.slider("BMI", 15.0, 50.0, 25.0, help="Body Mass Index: normal range is 18.5 - 24.9")
-    children = st.slider("Number of Children", 0, 5, 0)
-    smoker = st.selectbox("Smoker", list(smoker_mapping.keys()))
-    region = st.selectbox("Region", list(region_mapping.keys()))
+age = st.slider("Age", 18, 65, 30)
+st.selectbox("Sex", list(sex_mapping.keys()))
+bmi = st.slider("BMI", 15.0, 50.0, 25.0, help="Body Mass Index: normal range is 18.5 - 24.9")
+children = st.slider("Number of Children", 0, 5, 0)
+smoker = st.selectbox("Smoker", list(smoker_mapping.keys()))
+region = st.selectbox("Region", list(region_mapping.keys()))
 
     # Predict button
     if st.button("Predict Medical Expenses"):
