@@ -42,8 +42,8 @@ if st.button("Predict Medical Expenses"):
             'sex': sex_encoded,
             'bmi': bmi,
             'children': children,
-            'smoker': smoker_encoded,
-            'region': region_encoded
+            'smoker': smoker,
+            'region': region
         }])
 
         # Make prediction
